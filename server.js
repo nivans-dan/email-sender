@@ -9,7 +9,8 @@ const app = express();
 app.use(cors());
 app.use(cors({
     origin: ENV.parsed.ORIGIN,
-    methods: ['POST']
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
 }));
 app.use(express.json());
 app.use("/", router);
