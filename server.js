@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(cors());
 app.use(cors({
-    origin: ENV.parsed.ORIGIN,
+    origin: "https://dan-main-portfolio.herokuapp.com",
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
