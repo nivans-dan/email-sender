@@ -7,9 +7,9 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors());
-app.use(cors({
-    origin: ENV.parsed.ORIGIN
-}));
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", ENV.parsed.ORIGIN)
+});
 app.use(express.json());
 app.use("/", router);
 app.listen(port , () => console.log("Server Running"));
