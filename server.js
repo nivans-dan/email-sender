@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(cors());
 app.use(cors({
-    origin: "https://dan-main-portfolio.herokuapp.com",
+    origin: process.env.ORIGIN,
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
@@ -21,8 +21,8 @@ const contactEmail = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: ENV.parsed.SECRET_MAIL,
-        pass: ENV.parsed.SECRET_PASS
+        user: process.env.SECRET_MAIL,
+        pass: process.env.SECRET_PASS
     },
     requireTLS: true,
     tls: {
